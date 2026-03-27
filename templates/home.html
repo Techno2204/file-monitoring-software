@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Integrity Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1>🛡 Intelligent File Integrity Monitoring System</h1>
+
+<!--  NAVIGATION BAR -->
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/settings">Settings</a>
+    <a href="/baseline">Create Baseline</a>
+    <a href="/scan_live">Live Scan</a>
+    <a href="/logs">Audit Logs</a>
+    <a href="/reports">Reports</a>
+</div>
+
+<!--  SOC SUMMARY CARDS -->
+<div class="cards">
+
+    <div class="card">
+        <h2>Total Files Monitored</h2>
+        <p class="big-number">{{ files_count }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Total Folders Monitored</h2>
+        <p class="big-number">{{ folders_count }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Monitoring Target Folder</h2>
+        <p style="color:#facc15; font-weight:bold;">
+             {{ folder }}
+        </p>
+    </div>
+
+</div>
+
+<!--  LIVE MONITORING PANEL -->
+<div class="box">
+
+    <h2 style="color:#38bdf8;">🟢 Live Monitoring Control Panel</h2>
+
+    {% if monitoring %}
+        <p class="status-safe">
+             Live Monitoring is ACTIVE (Auto Scan Running)
+        </p>
+
+        <div style="text-align:center;">
+            <a href="/stop_monitoring"
+               class="btn restore"
+               style="background:#ef4444;color:white;">
+                 Stop Monitoring
+            </a>
+        </div>
+
+    {% else %}
+        <p class="status-alert">
+             Live Monitoring is OFF
+        </p>
+
+        <div style="text-align:center;">
+            <a href="/start_monitoring"
+               class="btn approve"
+               style="background:#22c55e;color:black;">
+                ▶ Start Live Monitoring
+            </a>
+        </div>
+    {% endif %}
+
+</div>
+
+<!--  THREAT STATUS -->
+<div class="box">
+
+    <h2 style="color:#38bdf8;"> SOC Integrity Threat Status</h2>
+
+    <p style="font-size:18px;font-weight:bold;">
+        Current Status: {{ threat }}
+    </p>
+
+</div>
+
+<!--  QUICK ACTIONS -->
+<div class="box">
+
+    <h2 style="color:#facc15;">⚡ Quick SOC Actions</h2>
+
+    <div style="text-align:center;">
+        <a href="/scan_live" class="btn approve">
+            ⚡ View Live Monitoring
+        </a>
+
+        <a href="/reports" class="btn report-btn" style="margin-left:15px;">
+             View Reports
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

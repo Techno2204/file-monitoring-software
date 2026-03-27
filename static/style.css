@@ -1,0 +1,378 @@
+/* ============================= */
+/*  GLOBAL THEME */
+/* ============================= */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+    color: white;
+    padding-bottom: 60px;
+}
+
+/* Smooth fonts */
+* {
+    box-sizing: border-box;
+}
+
+/* ============================= */
+/*  HEADER TITLE */
+/* ============================= */
+
+h1 {
+    text-align: center;
+    padding: 28px;
+    font-size: 36px;
+    color: #38bdf8;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 0 0 18px rgba(56,189,248,0.5);
+}
+
+/* ============================= */
+/*  NAVBAR */
+/* ============================= */
+
+.nav {
+    text-align: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav a {
+    margin: 10px;
+    padding: 10px 18px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    background: rgba(56, 189, 248, 0.18);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+}
+
+/* ============================= */
+/*  MAIN BOX SECTIONS */
+/* ============================= */
+
+.box {
+    width: 90%;
+    margin: 28px auto;
+    padding: 28px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+}
+
+/* ============================= */
+/*  DASHBOARD CARDS */
+/* ============================= */
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin: 30px auto;
+    width: 90%;
+    flex-wrap: wrap;
+}
+
+.card {
+    flex: 1;
+    min-width: 280px;
+    padding: 26px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 28px rgba(56, 189, 248, 0.25);
+    transition: 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 45px rgba(56, 189, 248, 0.65);
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #facc15;
+    margin-bottom: 15px;
+}
+
+.big-number {
+    font-size: 44px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+/* ============================= */
+/*  STATUS COLORS */
+/* ============================= */
+
+.status-safe {
+    color: #22c55e;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.status-alert {
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* ============================= */
+/*  BACK BUTTON */
+/* ============================= */
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px;
+    border-radius: 14px;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-back:hover {
+    background: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.6);
+}
+
+/* ============================= */
+/*  SOC SUMMARY GRID  */
+/* ============================= */
+
+.summary-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 18px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+    text-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.summary-card span {
+    display: block;
+    font-size: 38px;
+    margin-top: 10px;
+}
+
+.summary-card.red {
+    background: rgba(239, 68, 68, 0.18);
+    box-shadow: 0 0 18px rgba(239,68,68,0.35);
+}
+
+.summary-card.orange {
+    background: rgba(249, 115, 22, 0.18);
+    box-shadow: 0 0 18px rgba(249,115,22,0.35);
+}
+
+.summary-card.green {
+    background: rgba(34, 197, 94, 0.18);
+    box-shadow: 0 0 18px rgba(34,197,94,0.35);
+}
+
+.summary-card:hover {
+    transform: scale(1.07);
+}
+
+/* ============================= */
+/*  BUTTONS */
+/* ============================= */
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+/* Restore */
+.btn.restore {
+    background: #22c55e;
+    color: black;
+}
+
+.btn.restore:hover {
+    background: #16a34a;
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+}
+
+/* Approve */
+.btn.approve {
+    background: #38bdf8;
+    color: black;
+    margin-left: 10px;
+}
+
+.btn.approve:hover {
+    background: #0ea5e9;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
+}
+
+/* Report */
+.btn.report-btn {
+    background: #facc15;
+    color: black;
+    padding: 10px 20px;
+}
+
+.btn.report-btn:hover {
+    background: #eab308;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.75);
+}
+
+/* ============================= */
+/*  TABLE */
+/* ============================= */
+
+table {
+    width: 100%;
+    margin-top: 18px;
+    border-collapse: collapse;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+table th {
+    background: rgba(56, 189, 248, 0.18);
+    padding: 14px;
+    text-align: left;
+    color: #38bdf8;
+}
+
+table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+table tr:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================= */
+/*  RISK BADGES (SOC STYLE) */
+/* ============================= */
+
+.risk-high,
+.risk-medium,
+.risk-low {
+    padding: 7px 14px;
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.risk-high {
+    background: #ef4444;
+    color: white;
+    box-shadow: 0 0 12px rgba(239,68,68,0.7);
+}
+
+.risk-medium {
+    background: #f97316;
+    color: black;
+    box-shadow: 0 0 12px rgba(249,115,22,0.7);
+}
+
+.risk-low {
+    background: #22c55e;
+    color: black;
+    box-shadow: 0 0 12px rgba(34,197,94,0.7);
+}
+
+/* ============================= */
+/*  EXPLAINABLE ALERT BOX */
+/* ============================= */
+
+.explain-box {
+    margin-top: 12px;
+    padding: 16px;
+    border-left: 6px solid #facc15;
+    background: rgba(250, 204, 21, 0.08);
+    border-radius: 16px;
+    font-size: 13px;
+    color: #e2e8f0;
+}
+
+/* ============================= */
+/*  LOG TERMINAL */
+/* ============================= */
+
+.logs {
+    max-height: 340px;
+    overflow-y: auto;
+    padding: 16px;
+    border-radius: 14px;
+    background: black;
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.logs p {
+    margin: 6px 0;
+    padding: 6px;
+    border-left: 3px solid #38bdf8;
+}
+
+/* Scrollbar */
+.logs::-webkit-scrollbar {
+    width: 8px;
+}
+
+.logs::-webkit-scrollbar-thumb {
+    background: rgba(56, 189, 248, 0.5);
+    border-radius: 10px;
+}
+
+/* ============================= */
+/*  MOBILE RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 13px;
+    }
+
+    .summary-grid {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    .btn {
+        margin-top: 8px;
+        display: block;
+        text-align: center;
+    }
+}

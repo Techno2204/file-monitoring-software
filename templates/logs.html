@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audit Logs</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script>
+        function filterLogs() {
+            let input = document.getElementById("logSearch").value.toLowerCase();
+            let logs = document.getElementsByClassName("log-line");
+
+            for (let i = 0; i < logs.length; i++) {
+                logs[i].style.display =
+                    logs[i].innerText.toLowerCase().includes(input) ? "" : "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<h1> Integrity Audit Logs</h1>
+
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/settings">Settings</a>
+    <a href="/baseline">Create Baseline</a>
+    <a href="/scan_live">Live Scan</a>
+    <a href="/logs">Audit Logs</a>
+    <a href="/reports">Reports</a>
+</div>
+
+<div class="logs-box">
+
+    <h2> Search Logs</h2>
+
+    <input
+        type="text"
+        id="logSearch"
+        placeholder="Type keyword... (deleted, restored, baseline)"
+        onkeyup="filterLogs()"
+        style="width:100%;padding:12px;border-radius:10px;border:none;"
+    >
+
+    <h2>🛡 Activity Timeline</h2>
+
+    <div class="logs">
+        {% for log in logs %}
+            <p class="log-line">{{ log }}</p>
+        {% else %}
+            <p>No logs available yet.</p>
+        {% endfor %}
+    </div>
+
+    <div style="text-align:center;margin-top:20px;">
+        <a href="/download_logs" class="btn report-btn">
+            ⬇ Download Logs File
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

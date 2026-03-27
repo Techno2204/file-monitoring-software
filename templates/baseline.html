@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Baseline</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1> Baseline Creation</h1>
+
+<!--  NAVBAR -->
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/settings">Settings</a>
+    <a href="/baseline">Create Baseline</a>
+    <a href="/scan_live">Live Scan</a>
+    <a href="/logs">Audit Logs</a>
+    <a href="/reports">Reports</a>
+</div>
+
+<div class="box">
+  <h2 style="color:#38bdf8;"> Create System Baseline</h2>
+
+  <p>
+    This will generate hashes + backup for the monitored folder.
+  </p>
+
+  <p style="color:#facc15; font-weight:bold;">
+    Monitoring Folder:  {{ folder }}
+  </p>
+
+  <form method="POST">
+    <button type="submit" class="btn approve">
+       Create Baseline Now
+    </button>
+  </form>
+</div>
+
+<div style="text-align:center;margin-top:20px;">
+    <a href="/" class="btn-back">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>

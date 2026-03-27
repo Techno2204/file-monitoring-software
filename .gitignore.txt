@@ -1,0 +1,16 @@
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE files
+.idea/
+
+# Logs & temp files
+logs.txt
+
+# Optional (if you don’t want backups)
+backup/
+backup_files/

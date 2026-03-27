@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings - Monitor Folder</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1> Monitoring Settings</h1>
+
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/settings">Settings</a>
+    <a href="/baseline">Create Baseline</a>
+    <a href="/scan_live">Live Scan</a>
+    <a href="/logs">Audit Logs</a>
+    <a href="/reports">Reports</a>
+</div>
+
+<div class="box">
+
+    <h2 style="color:#38bdf8;"> Select Folder to Monitor</h2>
+
+    <form method="POST">
+
+        <p>Current Folder:</p>
+        <p style="color:#facc15; font-weight:bold;">
+            {{ folder }}
+        </p>
+
+        <input
+            type="text"
+            name="folder"
+            placeholder="Enter full folder path (e.g. D:/Trial)"
+            required
+            style="
+                width: 100%;
+                padding: 12px;
+                border-radius: 10px;
+                border: none;
+                margin-top: 10px;
+                font-size: 15px;
+            "
+        >
+
+        <br><br>
+
+        <button type="submit" class="btn approve">
+             Update Monitoring Folder
+        </button>
+
+    </form>
+
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+    <a href="/" class="btn-back">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>

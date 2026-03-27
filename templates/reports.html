@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integrity Reports</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<h1> Integrity Reports</h1>
+
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/settings">Settings</a>
+    <a href="/baseline">Create Baseline</a>
+    <a href="/scan_live">Live Scan</a>
+    <a href="/logs">Audit Logs</a>
+    <a href="/reports">Reports</a>
+</div>
+
+<div class="box">
+
+    <h2 style="color:#38bdf8;"> Latest Monitoring Reports</h2>
+
+    {% if reports %}
+        <table>
+            <tr>
+                <th>Report File</th>
+                <th>Download</th>
+            </tr>
+
+            {% for report in reports[:10] %}
+            <tr>
+                <td>{{ report }}</td>
+                <td>
+                    <a class="btn report-btn"
+                       href="/download_report/{{ report }}">
+                        ⬇ Download
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <p style="text-align:center;color:#94a3b8;">
+            Showing latest 10 reports only.
+        </p>
+
+    {% else %}
+        <p>No reports generated yet.</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

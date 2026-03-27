@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Integrity Scan Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+
+    {% if monitoring %}
+    <script>
+        setTimeout(() => window.location.reload(), 3000);
+    </script>
+    {% endif %}
+</head>
+
+<body>
+
+<h1> Live Integrity Scan Results</h1>
+
+<!--  NAVBAR -->
+<div class="nav">
+    <a href="/">Dashboard</a>
+    <a href="/settings">Settings</a>
+    <a href="/baseline">Create Baseline</a>
+    <a href="/scan_live">Live Scan</a>
+    <a href="/logs">Audit Logs</a>
+    <a href="/reports">Reports</a>
+</div>
+
+
+<!--  SUMMARY -->
+<div class="box">
+    <h2> SOC Summary</h2>
+
+    <p> Added Files: {{ added|length }}</p>
+    <p> Deleted Files: {{ deleted|length }}</p>
+    <p> Modified Files: {{ modified|length }}</p>
+
+    <p> Added Folders: {{ added_folders|length }}</p>
+    <p> Deleted Folders: {{ deleted_folders|length }}</p>
+
+    <p> Renamed Files: {{ renamed|length }}</p>
+    <p> Renamed Folders: {{ renamed_folders|length }}</p>
+</div>
+
+
+<!--  RENAMED FILES -->
+<div class="box">
+    <h2 style="color:yellow;"> Renamed Files</h2>
+
+    {% for old, new in renamed %}
+        <p>
+             {{ old }} ➝ {{ new }}
+
+            <a href="/approve_rename?old={{ old|urlencode }}&new={{ new|urlencode }}"
+               class="btn approve">
+                Approve
+            </a>
+
+            <a href="/reject_rename?old={{ old|urlencode }}&new={{ new|urlencode }}"
+               class="btn restore">
+                Reject
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No renamed files detected.</p>
+    {% endfor %}
+</div>
+
+
+<!--  RENAMED FOLDERS -->
+<div class="box">
+    <h2 style="color:cyan;"> Renamed Folders</h2>
+
+    {% for old, new in renamed_folders %}
+        <p>
+             {{ old }} ➝ {{ new }}
+
+            <a href="/approve_folder_rename?old={{ old|urlencode }}&new={{ new|urlencode }}"
+               class="btn approve">
+                Approve
+            </a>
+
+            <a href="/reject_folder_rename?old={{ old|urlencode }}&new={{ new|urlencode }}"
+               class="btn restore">
+                Reject
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No renamed folders detected.</p>
+    {% endfor %}
+</div>
+
+
+<!--  ADDED FILES -->
+<div class="box">
+    <h2 style="color:lightgreen;"> Added Files</h2>
+
+    {% for file, risk in added %}
+        <p>
+             {{ file }} ({{ risk }})
+
+            <a href="/approve_added?path={{ file|urlencode }}"
+               class="btn approve">
+                Approve
+            </a>
+
+            <a href="/delete_added?path={{ file|urlencode }}"
+               class="btn restore">
+                Delete
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No new files added.</p>
+    {% endfor %}
+</div>
+
+
+<!--  DELETED FILES -->
+<div class="box">
+    <h2 style="color:red;"> Deleted Files</h2>
+
+    {% for file, risk in deleted %}
+        <p>
+             {{ file }} ({{ risk }})
+
+            <a href="/restore_file?path={{ file|urlencode }}"
+               class="btn approve">
+                Restore File
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No deleted files detected.</p>
+    {% endfor %}
+</div>
+
+
+<!--  MODIFIED FILES -->
+<div class="box">
+    <h2 style="color:orange;"> Modified Files</h2>
+
+    {% for file, risk, hash in modified %}
+        <p>
+             {{ file }} ({{ risk }})
+
+            <a href="/approve_file?path={{ file|urlencode }}"
+               class="btn approve">
+                Approve Change
+            </a>
+
+            <a href="/reject_file?path={{ file|urlencode }}"
+               class="btn restore">
+                Reject & Restore
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No modified files detected.</p>
+    {% endfor %}
+</div>
+
+
+<!--  ADDED FOLDERS -->
+<div class="box">
+    <h2 style="color:lime;"> Added Folders</h2>
+
+    {% for folder in added_folders %}
+        <p>
+             {{ folder }}
+
+            <a href="/approve_added_folder?path={{ folder|urlencode }}"
+               class="btn approve">
+                Approve Folder
+            </a>
+
+            <a href="/delete_folder?path={{ folder|urlencode }}"
+               class="btn restore">
+               🗑 Delete Folder
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No new folders added.</p>
+    {% endfor %}
+</div>
+
+
+<!--  DELETED FOLDERS -->
+<div class="box">
+    <h2 style="color:violet;">🗑 Deleted Folders</h2>
+
+    {% for folder in deleted_folders %}
+        <p>
+             {{ folder }}
+
+            <a href="/restore_folder?path={{ folder|urlencode }}"
+               class="btn approve">
+                Restore Folder
+            </a>
+        </p>
+    {% else %}
+        <p style="color:#94a3b8;">No folders deleted.</p>
+    {% endfor %}
+</div>
+
+</body>
+</html>
