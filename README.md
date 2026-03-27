@@ -85,5 +85,7 @@ Then open: http://127.0.0.1:5000/
 ## Future Improvements
 
 Real-time alerts
+
 Email notifications
+
 Database integration
